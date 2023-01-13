@@ -3,7 +3,7 @@ import Layout from '../components/layout';
 import LeftArrow from '../components/leftarrowcomp';
 import SongsForSongComp from '../components/songsforsongcomp';
 
-function SongsForAlbumPage() {
+function SongsForSongPage() {
 
     useEffect(() => {
         let foo = localStorage.getItem('songFirstLetterID');
@@ -30,4 +30,4 @@ export async function getServerSideProps() {
     return { props: { data } }
 }
 
-export default SongsForAlbumPage
+export default SongsForSongPage

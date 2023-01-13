@@ -1,20 +1,20 @@
-import useSWR from 'swr'
-import { useEffect, useState } from 'react'
+// import useSWR from 'swr'
+// import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-const fetcher = (...args) => fetch(...args).then(res => res.json())
+// const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 export default function AlbumsForAlbumComp() {
 
-    const [Url, setUrl] = useState(null)
-    const { data, error, isLoading } = useSWR(Url, fetcher)
+    // const [Url, setUrl] = useState(null)
+    // const { data, error, isLoading } = useSWR(Url, fetcher)
 
-    console.log(data)
+    // console.log(data)
 
-    useEffect(() => {
-        let foo = localStorage.getItem('albumsForFirstLetterURL');
-        setUrl(foo)
-    }, []);
+    // useEffect(() => {
+    //     let foo = localStorage.getItem('albumsForFirstLetterURL');
+    //     setUrl(foo)
+    // }, []);
 
     // if (error) return <div>failed to load</div>
     // if (isLoading) return <div>loading...</div>
