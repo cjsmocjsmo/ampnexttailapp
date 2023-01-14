@@ -19,9 +19,20 @@ function AlbumsForAlbumPage({ data }) {
                         data
                             ?
                             data.map((d) => (
-                                <div className='m-5'>
-                                    <Link href="songsforalbumpage" key={d._id} onClick={() => setSelectedAlbumID(d.AlbumID)}>
-                                        <Image id={d.AlbumID} src={d.ThumbHttpPath} alt={d.Album} width="120" height="120" />
+                                <div key={d._id} className='m-5'>
+                                    <Link
+                                        href="songsforalbumpage"
+                                        key={d._id}
+                                        onClick={() => setSelectedAlbumID(d.AlbumID)}
+                                    >
+                                        <Image
+                                            key={d._id}
+                                            id={d.AlbumID}
+                                            src={d.ThumbHttpPath}
+                                            alt={d.Album}
+                                            width="120"
+                                            height="120"
+                                        />
                                     </Link>
                                 </div>
                             ))

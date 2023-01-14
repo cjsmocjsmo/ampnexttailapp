@@ -22,7 +22,8 @@ function Artist({ data }) {
                                     key={d._id}
                                     id={d.firstletterid}
                                     onClick={() => updateArtistFirstLetterID(d.firstletterid)}
-                                    className="m-4 text-3xl text-green-600">
+                                    className="m-4 text-3xl text-green-600"
+                                >
                                     {d.firstletter}
                                 </Link>
                             ))

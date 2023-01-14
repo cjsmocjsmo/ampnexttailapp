@@ -16,11 +16,12 @@ function Song({ data }) {
                     {
                         data.map((d) => (
                             <Link
-                                href="songsforsongpage"
                                 key={d._id}
                                 id={d.firstletterid}
+                                className="m-4 text-3xl text-green-600"
+                                href="songsforsongpage"
                                 onClick={() => setFirstLetterID(d.firstletterid)}
-                                className="m-4 text-3xl text-green-600">
+                            >
                                 {d.firstletter}
                             </Link>
                         ))

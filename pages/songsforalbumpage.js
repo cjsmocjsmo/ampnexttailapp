@@ -3,19 +3,45 @@ import Layout from "../components/layout"
 
 function SongsForAlbumPage({ data }) {
 
+    function setSongID(sid) {
+
+    }
+
+    function setThumbHttpPath(httppath) {
+
+    }
+
     return (
         <Layout>
             <center>
-                <h1 className="text-white">Fuck</h1>
-                <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 m-10 items-center justify-evenly">
+                <div className="text-4xl text-white">Songs</div>
+                <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 m-10 items-center justify-evenly">
 
                     {
                         data
                             ?
                             data.map((d) => (
+                                <Link
+                                    href="/playerpage"
+                                    className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
+                                >
+                                    <h3 className="text-2xl font-bold text-purple-600">{d.Song} &rarr;</h3>
+                                    <div className="grid grid-cols-2 gap-2">
+                                        <p 
+                                            className="mt-4 text-xl text-green-600" 
+                                            onClick={() => setSongID(d.SongID)}
+                                        >
+                                            play
+                                        </p>
+                                        <p 
+                                            className="mt-4 text-xl text-green-600" 
+                                            onClick={() => setThumbHttpPath(d.ThumbHttpPath)}
+                                        >
+                                            add to playlist
+                                        </p>
+                                    </div>
 
-                                <Link key={d._id} href="/playerpage" className="text-white" >{d.Song}</Link>
-                                // <a  onClick={() => localStorage.setItem("artistFirstLetterID", d.firstletterid)} className="m-4 text-3xl text-green-600">{d.firstletter}</a>
+                                </Link>
                             ))
                             :
                             <h1></h1>

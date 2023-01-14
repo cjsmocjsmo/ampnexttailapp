@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import Layout from '../components/layout'
 
 function AlbumsForArtistPage({ data2 }) {
@@ -18,10 +19,21 @@ function AlbumsForArtistPage({ data2 }) {
                         data2
                             ?
                             data2.map((d) => (
-                                <div className='m-5'>
-                                    <a href="songsforalbumpage" key={d._id} onClick={() => setSelectedAlbumID(d.albumID)}>
-                                        <Image id={d.albumID} src={d.thumbhttppath} alt={d.album} width="120" height="120" />
-                                    </a>
+                                <div key={d._id} className='m-5'>
+                                    <Link
+                                        href="songsforalbumpage"
+                                        key={d._id}
+                                        onClick={() => setSelectedAlbumID(d.albumID)}
+                                    >
+                                        <Image
+                                            key={d._id}
+                                            id={d.albumID}
+                                            src={d.thumbhttppath}
+                                            alt={d.album}
+                                            width="120"
+                                            height="120"
+                                        />
+                                    </Link>
                                 </div>
                             ))
                             :
@@ -36,15 +48,12 @@ function AlbumsForArtistPage({ data2 }) {
 export async function getServerSideProps() {
     function newaddr(artid) {
         const url1 = "http://192.168.0.34:9090/albumsForArtist?selected=" + artid
-        const url2 = "http://192.168.0.34:9090/updatealbumsforartisturl?url=" + url1
-        return url2
+        return "http://192.168.0.34:9090/updatealbumsforartisturl?url=" + url1
     }
     const data = await fetch("http://192.168.0.34:9090/getartistid")
     const artid = await data.json()
     const url2 = await newaddr(artid)
-
     const res = await fetch(url2)
-
     const res2 = await fetch("http://192.168.0.34:9090/getalbumsforartisturl")
     const aurl = await res2.json()
     const res3 = await fetch(aurl)

@@ -22,7 +22,8 @@ function Album({ data }) {
                                     key={d._id}
                                     id={d.firstletterid}
                                     onClick={() => setAlbumFirstLetterID(d.firstletterid)}
-                                    className="m-4 text-3xl text-green-600">
+                                    className="m-4 text-3xl text-green-600"
+                                >
                                     {d.firstletter}
                                 </Link>
                             ))

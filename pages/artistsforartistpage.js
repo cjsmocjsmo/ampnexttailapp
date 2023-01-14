@@ -22,7 +22,8 @@ function ArtistsForArtistPage({ data2 }) {
                                     key={d._id}
                                     id={d.artistid}
                                     onClick={() => setArtistId(d.artistid)}
-                                    className="m-4 text-3xl text-green-600">
+                                    className="m-4 text-3xl text-green-600"
+                                >
                                     {d.artist}
                                 </Link>
                             ))
