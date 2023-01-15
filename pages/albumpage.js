@@ -1,27 +1,27 @@
 import Link from 'next/link';
 import Layout from '../components/layout';
 
-function Artist({ data }) {
+function Album({ data }) {
 
-    function updateArtistFirstLetterID(artflid) {
-        const url = "http://192.168.0.91:9090/updateartistfirstletterid?artflid=" + artflid
+    function setAlbumFirstLetterID(aflid) {
+        const url = "http://192.168.0.91:9090/updatealbumfirstletterid?albid=" + aflid
         fetch(url)
     }
 
     return (
         <Layout>
             <center>
-                <div className="text-5xl text-white">Artist</div>
+                <div className="text-5xl text-white">Album</div>
                 <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 m-10 items-center justify-evenly">
                     {
                         data
                             ?
                             data.map((d) => (
                                 <Link
-                                    href="/artistsforartistpage"
+                                    href="/albumpage2"
                                     key={d._id}
                                     id={d.firstletterid}
-                                    onClick={() => updateArtistFirstLetterID(d.firstletterid)}
+                                    onClick={() => setAlbumFirstLetterID(d.firstletterid)}
                                     className="m-4 text-3xl text-green-600"
                                 >
                                     {d.firstletter}
@@ -37,9 +37,9 @@ function Artist({ data }) {
 }
 
 export async function getServerSideProps() {
-    const res = await fetch("http://192.168.0.91:9090/artistFirstLetter")
+    const res = await fetch("http://192.168.0.91:9090/albumFirstLetter")
     const data = await res.json()
     return { props: { data } }
 }
 
-export default Artist
+export default Album

@@ -39,7 +39,7 @@ const Home: NextPage = () => {
 
 
           <Link
-            href="/firstartistpage"
+            href="/artistpage"
             className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
           >
             <h3 className="text-2xl font-bold text-purple-600">Artists &rarr;</h3>
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
           </Link>
 
           <Link
-            href="/firstalbumpage"
+            href="/albumpage"
             className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
           >
             <h3 className="text-2xl font-bold text-purple-600">Albums &rarr;</h3>
@@ -59,7 +59,7 @@ const Home: NextPage = () => {
           </Link>
 
           <Link
-            href="/firstsongpage"
+            href="/songpage"
             className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
           >
             <h3 className="text-2xl font-bold text-purple-600">Songs &rarr;</h3>

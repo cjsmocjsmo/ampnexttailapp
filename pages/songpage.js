@@ -19,7 +19,7 @@ function Song({ data }) {
                                 key={d._id}
                                 id={d.firstletterid}
                                 className="m-4 text-3xl text-green-600"
-                                href="songsforsongpage"
+                                href="/songpage2"
                                 onClick={() => setFirstLetterID(d.firstletterid)}
                             >
                                 {d.firstletter}
