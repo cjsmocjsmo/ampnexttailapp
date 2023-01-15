@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 function AlbumsForAlbumPage({ data }) {
 
     function setSelectedAlbumID(albid) {
-        const url = "http://192.168.0.34:9090/updateselectedalbumid?selalbid=" + albid
+        const url = "http://192.168.0.34:9090/updateselectedalbumid?selalbid=" + encodeURIComponent(albid) 
         fetch(url)
     }
 
@@ -49,8 +49,8 @@ function AlbumsForAlbumPage({ data }) {
 export async function getServerSideProps() {
     const foo = await fetch("http://192.168.0.34:9090/getalbumfirstletterid")
     const aid = await foo.json()
-    const url = 'http://192.168.0.34:9090/albumsForFirstLetter?firstletter=' + aid[4, 5]
-    const url2 = "http://192.168.0.34:9090/updatealbumsforfirstletterurl?url=" + url
+    const url = 'http://192.168.0.34:9090/albumsForFirstLetter?firstletter=' + encodeURIComponent(aid[4, 5]) 
+    const url2 = "http://192.168.0.34:9090/updatealbumsforfirstletterurl?url=" + encodeURIComponent(url)
     const d = await fetch(url2)
     const res = await fetch("http://192.168.0.34:9090/getalbumsforfirstletterurl")
     const addr = await res.json()

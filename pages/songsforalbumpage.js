@@ -3,13 +3,22 @@ import Layout from "../components/layout"
 
 function SongsForAlbumPage({ data }) {
 
-    function setSongID(sid) {
+    function setThumbHttpPath(apath) {
+        const url = "http://192.168.0.34:9090/updatethumbhttppath?thumb=" + apath
+        fetch(url)
+    }
+
+    function setSongID(sid, httppath) {
+        const url = "http://192.168.0.34:9090/updatesongid?sid=" + sid
+        fetch(url)
+        setThumbHttpPath(httppath)
+    }
+
+    function addSongToPlaylist(asong) {
 
     }
 
-    function setThumbHttpPath(httppath) {
-
-    }
+    
 
     return (
         <Layout>
@@ -21,27 +30,29 @@ function SongsForAlbumPage({ data }) {
                         data
                             ?
                             data.map((d) => (
-                                <Link
-                                    href="/playerpage"
+                                <div
                                     className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
                                 >
-                                    <h3 className="text-2xl font-bold text-purple-600">{d.Song} &rarr;</h3>
-                                    <div className="grid grid-cols-2 gap-2">
-                                        <p 
-                                            className="mt-4 text-xl text-green-600" 
-                                            onClick={() => setSongID(d.SongID)}
-                                        >
-                                            play
-                                        </p>
-                                        <p 
-                                            className="mt-4 text-xl text-green-600" 
-                                            onClick={() => setThumbHttpPath(d.ThumbHttpPath)}
-                                        >
-                                            add to playlist
-                                        </p>
+                                    <h3 className="text-3xl font-bold text-purple-600">{d.Song} &rarr;</h3>
+                                    <div className="grid grid-cols-2 items-center items-center">
+                                        <Link href="/playerpage">
+                                            <button
+                                                className="mt-4 p-3 rounded-xl bg-purple-600 text-xl text-amber-400" 
+                                                onClick={() => setSongID(d.SongID, d.ThumbHttpPath)}
+                                            >
+                                                play
+                                            </button>
+                                        </Link>
+                                        <Link href="/mainplaylistpage">
+                                            <button
+                                                className="mt-4 p-3 rounded-xl bg-purple-600 text-xl text-amber-400" 
+                                                onClick={() => addSongToPlaylist(d.SongID)}
+                                            >
+                                                add to playlist
+                                            </button>
+                                        </Link>
                                     </div>
-
-                                </Link>
+                                </div>
                             ))
                             :
                             <h1></h1>

@@ -1,5 +1,6 @@
-import Layout from '../components/layout';
 import Link from 'next/link';
+import Layout from '../components/layout';
+
 
 function Artist({ data }) {
 
