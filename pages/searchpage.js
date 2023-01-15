@@ -5,19 +5,19 @@ export default function Search() {
 
     function submitArtistSearch() {
         const artist = document.getElementById("artistSearchInput").value
-        const url = "http://192.168.0.34:9090/updatesearchartist?search=" + encodeURIComponent(artist) 
+        const url = "http://192.168.0.91:9090/updatesearchartist?search=" + encodeURIComponent(artist) 
         fetch(url)
     }
 
     function submitAlbumSearch() {
         const album = document.getElementById("albumSearchInput").value
-        const url2 = "http://192.168.0.34:9090/updatesearchalbum?search=" + encodeURIComponent(album) 
+        const url2 = "http://192.168.0.91:9090/updatesearchalbum?search=" + encodeURIComponent(album) 
         fetch(url2)
     }
 
     function submitSongSearch() {
         const song = document.getElementById("songSearchInput").value
-        const url3 = "http://192.168.0.34:9090/updatesearchsong?search=" + encodeURIComponent(song) 
+        const url3 = "http://192.168.0.91:9090/updatesearchsong?search=" + encodeURIComponent(song) 
         fetch(url3)
     }
 

@@ -7,7 +7,7 @@ function SongsForSongPage() {
 
     useEffect(() => {
         let foo = localStorage.getItem('songFirstLetterID');
-        const URL = 'http://192.168.0.34:9090/songsForFirstLetter?firstletter=' + foo[3, 4]
+        const URL = 'http://192.168.0.91:9090/songsForFirstLetter?firstletter=' + foo[3, 4]
         localStorage.setItem("songsForFirstLetterURL", URL)
     }, []);
 
@@ -25,7 +25,7 @@ function SongsForSongPage() {
 }
 
 export async function getServerSideProps() {
-    const res = await fetch("http://192.168.0.34:9090/artistFirstLetter")
+    const res = await fetch("http://192.168.0.91:9090/artistFirstLetter")
     const data = await res.json()
     return { props: { data } }
 }

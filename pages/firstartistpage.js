@@ -4,7 +4,7 @@ import Layout from '../components/layout';
 function Artist({ data }) {
 
     function updateArtistFirstLetterID(artflid) {
-        const url = "http://192.168.0.34:9090/updateartistfirstletterid?artflid=" + artflid
+        const url = "http://192.168.0.91:9090/updateartistfirstletterid?artflid=" + artflid
         fetch(url)
     }
 
@@ -37,7 +37,7 @@ function Artist({ data }) {
 }
 
 export async function getServerSideProps() {
-    const res = await fetch("http://192.168.0.34:9090/artistFirstLetter")
+    const res = await fetch("http://192.168.0.91:9090/artistFirstLetter")
     const data = await res.json()
     return { props: { data } }
 }

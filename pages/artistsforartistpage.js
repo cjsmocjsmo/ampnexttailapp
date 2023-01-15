@@ -14,17 +14,17 @@ function ArtistsForArtistPage({ data }) {
 
 export async function getServerSideProps() {
     function newaddr(a1) {
-       const url11 = 'http://192.168.0.34:9090/artistsForFirstLetter?firstletter=' + encodeURIComponent(a1[5, 6]) 
-        const url12 = "http://192.168.0.34:9090/updateartistsforfirstletterurl?url=" + encodeURIComponent(url11) 
+       const url11 = 'http://192.168.0.91:9090/artistsForFirstLetter?firstletter=' + encodeURIComponent(a1[5, 6]) 
+        const url12 = "http://192.168.0.91:9090/updateartistsforfirstletterurl?url=" + encodeURIComponent(url11) 
         return url12
     }
 
-    const res = await fetch("http://192.168.0.34:9090/getartistfirstletterid")
+    const res = await fetch("http://192.168.0.91:9090/getartistfirstletterid")
     const d = await res.json()
     const url = await newaddr(d)
     const res2 = await fetch(url)
 
-    const res3 = await fetch("http://192.168.0.34:9090/getartistsforfirstletterurl")
+    const res3 = await fetch("http://192.168.0.91:9090/getartistsforfirstletterurl")
     const aurl = await res3.json()
     const res4 = await fetch(aurl)
     const data = await res4.json()

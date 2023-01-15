@@ -4,7 +4,7 @@ import Layout from '../components/layout';
 function Album({ data }) {
 
     function setAlbumFirstLetterID(aflid) {
-        const url = "http://192.168.0.34:9090/updatealbumfirstletterid?albid=" + aflid
+        const url = "http://192.168.0.91:9090/updatealbumfirstletterid?albid=" + aflid
         fetch(url)
     }
 
@@ -37,7 +37,7 @@ function Album({ data }) {
 }
 
 export async function getServerSideProps() {
-    const res = await fetch("http://192.168.0.34:9090/albumFirstLetter")
+    const res = await fetch("http://192.168.0.91:9090/albumFirstLetter")
     const data = await res.json()
     return { props: { data } }
 }

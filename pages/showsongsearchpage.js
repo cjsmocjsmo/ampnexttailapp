@@ -12,7 +12,7 @@ function ShowSongSearch({ data }) {
 }
 
 // export async function getServerSideProps() {
-    //     const res = await fetch("http://192.168.0.34:9090/artistFirstLetter")
+    //     const res = await fetch("http://192.168.0.91:9090/artistFirstLetter")
     //     const data = await res.json()
     //     return { props: { data } }
     // }

@@ -4,12 +4,12 @@ import Layout from "../components/layout"
 function SongsForAlbumPage({ data }) {
 
     function setThumbHttpPath(apath) {
-        const url = "http://192.168.0.34:9090/updatethumbhttppath?thumb=" + apath
+        const url = "http://192.168.0.91:9090/updatethumbhttppath?thumb=" + apath
         fetch(url)
     }
 
     function setSongID(sid, httppath) {
-        const url = "http://192.168.0.34:9090/updatesongid?sid=" + sid
+        const url = "http://192.168.0.91:9090/updatesongid?sid=" + sid
         fetch(url)
         setThumbHttpPath(httppath)
     }
@@ -66,9 +66,9 @@ function SongsForAlbumPage({ data }) {
 
 export async function getServerSideProps() {
     function newaddr(b2) {
-        return "http://192.168.0.34:9090/songsForAlbum?selected=" + b2
+        return "http://192.168.0.91:9090/songsForAlbum?selected=" + b2
     }
-    const id = await fetch("http://192.168.0.34:9090/getselectedalbumid")
+    const id = await fetch("http://192.168.0.91:9090/getselectedalbumid")
     const albid = await id.json()
     const newaddress = await newaddr(albid)
     const d = await fetch(newaddress)

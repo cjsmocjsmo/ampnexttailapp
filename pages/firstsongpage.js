@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 function Song({ data }) {
 
     function setFirstLetterID(flid) {
-        const url = "http://192.168.0.34:9090/updatesongfirstletterid" + flid
+        const url = "http://192.168.0.91:9090/updatesongfirstletterid" + flid
         fetch(url)
     }
 
@@ -33,7 +33,7 @@ function Song({ data }) {
 }
 
 export async function getServerSideProps() {
-    const res = await fetch("http://192.168.0.34:9090/songFirstLetter")
+    const res = await fetch("http://192.168.0.91:9090/songFirstLetter")
     const data = await res.json()
     return { props: { data } }
 }

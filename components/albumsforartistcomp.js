@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function AlbumsForArtistComp(props) {
 
     function setSelectedAlbumID(albid) {
-        const url = "http://192.168.0.34:9090/updateselectedalbumid?selalbid=" + albid
+        const url = "http://192.168.0.91:9090/updateselectedalbumid?selalbid=" + albid
         fetch(url)
     }
 

@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function ArtistsForArtistComp(props) {
 
     function setArtistId(aid) {
-        const url = "http://192.168.0.34:9090/updateartistid?artid=" + aid
+        const url = "http://192.168.0.91:9090/updateartistid?artid=" + aid
         fetch(url)
     }
 
