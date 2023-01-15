@@ -1,40 +1,44 @@
-// import useSWR from 'swr'
-// import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 
-// const fetcher = (...args) => fetch(...args).then(res => res.json())
+export default function AlbumsForAlbumComp(props) {
 
-export default function AlbumsForAlbumComp() {
+    function setSelectedAlbumID(albid) {
+        const url = "http://192.168.0.34:9090/updateselectedalbumid?selalbid=" + encodeURIComponent(albid) 
+        fetch(url)
+    }
 
-    // const [Url, setUrl] = useState(null)
-    // const { data, error, isLoading } = useSWR(Url, fetcher)
-
-    // console.log(data)
-
-    // useEffect(() => {
-    //     let foo = localStorage.getItem('albumsForFirstLetterURL');
-    //     setUrl(foo)
-    // }, []);
-
-    // if (error) return <div>failed to load</div>
-    // if (isLoading) return <div>loading...</div>
+    console.log(props)
 
     return (
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 m-10 items-center justify-evenly">
+
+        <div className="grid xxsm:grid-cols-1 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-4 xl:grid-cols-8 gap=2 m-10 items-center justify-evenly">
 
             {
-                data
-                ?
-                data.map((d) => (
-                    <div className='m-5'>
-                        <a href="/songsforalbumpage" key={d._id} onClick={() => localStorage.setItem("selectedAlbumID", d.AlbumID)} >
-                            <Image src={d.ThumbHttpPath} width="120" height="120" />
-                        </a>
-                    </div>
-                ))
-                :
-                <h1></h1>
+                props.data
+                    ?
+                    props.data.map((d) => (
+                        <div key={d._id} className='m-5'>
+                            <Link
+                                href="songsforalbumpage"
+                                key={d._id}
+                                onClick={() => setSelectedAlbumID(d.AlbumID)}
+                            >
+                                <Image
+                                    key={d._id}
+                                    id={d.AlbumID}
+                                    src={d.ThumbHttpPath}
+                                    alt={d.Album}
+                                    width="120"
+                                    height="120"
+                                />
+                            </Link>
+                        </div>
+                    ))
+                    :
+                    <h1></h1>
             }
+
         </div>
     )
 }

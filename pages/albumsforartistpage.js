@@ -1,45 +1,12 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import Layout from '../components/layout'
+import AlbumsForArtistComp from '../components/albumsforartistcomp'
 
-function AlbumsForArtistPage({ data2 }) {
-
-    function setSelectedAlbumID(albid) {
-        const url = "http://192.168.0.34:9090/updateselectedalbumid?selalbid=" + albid
-        fetch(url)
-    }
-
+function AlbumsForArtistPage({ data }) {
     return (
         <Layout>
             <center>
                 <div className="text-5xl text-white">Artist</div>
-                <div className="grid xxsm:grid-cols-1 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-4 xl:grid-cols-8 gap=2 m-10 items-center justify-evenly">
-
-                    {
-                        data2
-                            ?
-                            data2.map((d) => (
-                                <div key={d._id} className='m-5'>
-                                    <Link
-                                        href="songsforalbumpage"
-                                        key={d._id}
-                                        onClick={() => setSelectedAlbumID(d.albumID)}
-                                    >
-                                        <Image
-                                            key={d._id}
-                                            id={d.albumID}
-                                            src={d.thumbhttppath}
-                                            alt={d.album}
-                                            width="120"
-                                            height="120"
-                                        />
-                                    </Link>
-                                </div>
-                            ))
-                            :
-                            <h1></h1>
-                    }
-                </div>
+                <AlbumsForArtistComp data={data} />
             </center>
         </Layout>
     )
@@ -47,18 +14,19 @@ function AlbumsForArtistPage({ data2 }) {
 
 export async function getServerSideProps() {
     function newaddr(artid) {
-        const url1 = "http://192.168.0.34:9090/albumsForArtist?selected=" + artid
-        return "http://192.168.0.34:9090/updatealbumsforartisturl?url=" + url1
+        const url1 = "http://192.168.0.34:9090/albumsForArtist?selected=" + encodeURIComponent(artid) 
+        return "http://192.168.0.34:9090/updatealbumsforartisturl?url=" + encodeURIComponent(url1)
     }
-    const data = await fetch("http://192.168.0.34:9090/getartistid")
-    const artid = await data.json()
+    const d = await fetch("http://192.168.0.34:9090/getartistid")
+    const artid = await d.json()
     const url2 = await newaddr(artid)
     const res = await fetch(url2)
+
     const res2 = await fetch("http://192.168.0.34:9090/getalbumsforartisturl")
     const aurl = await res2.json()
     const res3 = await fetch(aurl)
-    const data2 = await res3.json()
-    return { props: { data2 } }
+    const data = await res3.json()
+    return { props: { data } }
 }
 
 export default AlbumsForArtistPage

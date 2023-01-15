@@ -40,11 +40,6 @@ export async function getServerSideProps() {
     const addr = await createAddr(searchstring)
     const search = await fetch(addr)
     const data = await search.json()
-
-    console.log(data)
-
-
-
     return { props: { data } }
 }
 

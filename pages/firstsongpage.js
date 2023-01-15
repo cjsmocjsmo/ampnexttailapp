@@ -29,7 +29,6 @@ function Song({ data }) {
                 </div>
             </center>
         </Layout>
-
     )
 }
 

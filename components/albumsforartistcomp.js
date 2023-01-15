@@ -1,43 +1,42 @@
-// import useSWR from 'swr'
-// import { useEffect, useState } from 'react'
-// import Image from 'next/image'
+import Link from 'next/link'
+import Image from 'next/image'
 
-// const fetcher = (...args) => fetch(...args).then(res => res.json())
+export default function AlbumsForArtistComp(props) {
 
-// export default function AlbumsForArtistComp() {
+    function setSelectedAlbumID(albid) {
+        const url = "http://192.168.0.34:9090/updateselectedalbumid?selalbid=" + albid
+        fetch(url)
+    }
 
-//     const [Url, setUrl] = useState(null)
-//     const { data, error, isLoading } = useSWR(Url, fetcher)
+    return (
 
-//     console.log(Url)
-//     console.log(data)
+        <div className="grid xxsm:grid-cols-1 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-4 xl:grid-cols-8 gap=2 m-10 items-center justify-evenly">
 
-//     useEffect(() => {
-//         let foo = localStorage.getItem('albumsforartistURL');
-//         setUrl(foo)
-//     }, []);
+            {
+                props.data
+                    ?
+                    props.data.map((d) => (
+                        <div key={d._id} className='m-5'>
+                            <Link
+                                href="songsforalbumpage"
+                                key={d._id}
+                                onClick={() => setSelectedAlbumID(d.albumID)}
+                            >
 
-//     if (error) return <div>failed to load</div>
-//     if (isLoading) return <div>loading...</div>
-
-//     return (
-        
-//         // <div className="grid xxsm:grid-cols-1 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-4 xl:grid-cols-8 gap=2 m-10 items-center justify-evenly">
-
-//         //     {
-//         //         data
-//         //             ?
-//         //             data.map((d) => (
-//         //                 <div className='m-5'>
-//         //                     <a href="songsforalbumpage" key={d._id} onClick={() => localStorage.setItem("selectedAlbumID", d.albumID)}>
-//         //                         <Image id={d.albumID} src={d.thumbhttppath} alt={d.album} width="120" height="120" />
-//         //                     </a>
-//         //                 </div>
-//         //             ))
-//         //             :
-//         //             <h1></h1>
-//         //     }
-
-//         // </div>
-//     )
-// }
+                                <Image
+                                    key={d._id}
+                                    id={d.albumID}
+                                    src={d.thumbhttppath}
+                                    alt={d.album}
+                                    width="120"
+                                    height="120"
+                                />
+                            </Link>
+                        </div>
+                    ))
+                    :
+                    <h1></h1>
+            }
+        </div>
+    )
+}
