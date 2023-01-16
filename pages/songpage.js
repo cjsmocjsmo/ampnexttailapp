@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 function Song({ data }) {
 
     function setFirstLetterID(flid) {
-        const url = "http://192.168.0.91:9090/updatesongfirstletterid" + flid
+        const url = "http://192.168.0.91:9090/updatesongfirstletterid?sid=" + flid
         fetch(url)
     }
 
