@@ -18,14 +18,14 @@ export default function AlbumsForAlbumComp(props) {
                 props.data
                     ?
                     props.data.map((d) => (
-                        <div key={d._id} className='m-5'>
+                        <div key={d.AlbumID} className='m-5'>
                             <Link
                                 href="songsforalbumpage"
                                 key={d._id}
                                 onClick={() => setSelectedAlbumID(d.AlbumID)}
                             >
                                 <Image
-                                    key={d._id}
+                                    key={d.AlbumID}
                                     id={d.AlbumID}
                                     src={d.ThumbHttpPath}
                                     alt={d.Album}

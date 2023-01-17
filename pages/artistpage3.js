@@ -1,7 +1,7 @@
 import Layout from '../components/layout'
 import AlbumsForArtistComp from '../components/albumsforartistcomp'
 
-function AlbumsForArtistPage({ data }) {
+function ArtistPage3({ data }) {
     return (
         <Layout>
             <center>
@@ -29,4 +29,4 @@ export async function getServerSideProps() {
     return { props: { data } }
 }
 
-export default AlbumsForArtistPage
+export default ArtistPage3

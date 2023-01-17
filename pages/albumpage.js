@@ -4,7 +4,8 @@ import Layout from '../components/layout';
 function Album({ data }) {
 
     function setAlbumFirstLetterID(aflid) {
-        const url = "http://192.168.0.91:9090/updatealbumfirstletterid?albid=" + aflid
+        const u = "http://192.168.0.91:9090/updatealbumfirstletterid?albid=" + aflid
+        const url = encodeURI(u)
         fetch(url)
     }
 

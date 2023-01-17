@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Layout from "../components/layout"
 
-function ShowArtistSearch({ data }) {
+function ShowArtistSearchPage({ data }) {
 
     function setArtistSearchArtistSelected(artid) {
 
@@ -16,10 +16,11 @@ function ShowArtistSearch({ data }) {
                 {
                     data
                         ?
-                        data.map((d) => (
+                        data.map((d, index) => (
                             <Link
+                                key={index}
                                 href="/"
-                                key={d._id}
+                                
                                 id={d.ArtistID}
                                 onClick={() => setArtistSearchArtistSelected(d.ArtistID)}
                                 className="m-4 text-3xl text-green-600"
@@ -48,4 +49,4 @@ export async function getServerSideProps() {
     return { props: { data } }
 }
 
-export default ShowArtistSearch
+export default ShowArtistSearchPage

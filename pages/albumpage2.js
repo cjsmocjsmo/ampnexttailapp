@@ -1,7 +1,7 @@
 import Layout from '../components/layout';
 import AlbumsForAlbumComp from '../components/albumsforalbumcomp';
 
-function AlbumsForAlbumPage({ data }) {
+function AlbumPage2({ data }) {
     return (
         <Layout>
             <center>
@@ -26,4 +26,4 @@ export async function getServerSideProps() {
     return { props: { data } }
 }
 
-export default AlbumsForAlbumPage
+export default AlbumPage2

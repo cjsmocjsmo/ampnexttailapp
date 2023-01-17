@@ -1,6 +1,6 @@
 import Head from "next/head"
-import LeftArrow from "./leftarrowcomp"
 // import { motion } from "framer-motion";
+import Footer from "./headercomp"
 
 export default function Layout({ children }) {
     return (
@@ -14,22 +14,22 @@ export default function Layout({ children }) {
         //         damping: 20,
         //     }}
         // >
-
-            <main>
-
-                <Head>
-                    <title>Ekco</title>
-                    <a rel="icon" href="/favicon.ico" />
-                </Head>
+        <div className="bg-black">
+            <Head>
+                <title>Ekco</title>
+                <a rel="icon" href="/favicon.ico" />
+            </Head>
+            <Footer />
+            <main className="bg-black">
                 <div className="flex min-h-screen flex-col py-2 bg-black">
-                    <LeftArrow url="/" />
 
                     {children}
 
                 </div>
 
             </main>
-
+            
+        </div>
         // </motion.div>
     )
 }
