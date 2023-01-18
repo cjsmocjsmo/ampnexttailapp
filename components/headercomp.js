@@ -26,7 +26,7 @@ export default function Header() {
                 </button>
             </Link>
 
-            <Link href="/mainplaylistpage">
+            <Link href="/playlistmainpage">
                 <button className="bg-purple-400 text-amber-400, m-2 p-2 rounded-lg">
                     Playlist
                 </button>

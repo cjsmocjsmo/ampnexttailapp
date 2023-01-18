@@ -28,7 +28,7 @@ const Home: NextPage = () => {
           </Link>
 
           <Link
-            href="/mainplaylistpage"
+            href="/playlistmainpage"
             className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
           >
             <h3 className="text-2xl font-bold text-purple-600">Playlists &rarr;</h3>
@@ -67,26 +67,6 @@ const Home: NextPage = () => {
               A complete list of all songs.
             </p>
           </Link>
-
-          {/* <Link
-            href="/mainplaylistpage"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold text-purple-600">Playlists &rarr;</h3>
-            <p className="mt-4 text-xl text-purple-600">
-              Create and listen to Playlists.
-            </p>
-          </Link> */}
-
-          {/* <Link
-            href="/mainsearchpage"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold text-purple-600">Search &rarr;</h3>
-            <p className="mt-4 text-xl text-purple-600">
-              Search by artist album or song.
-            </p>
-          </Link> */}
         </div>
       </main>
 
