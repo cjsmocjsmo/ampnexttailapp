@@ -1,6 +1,6 @@
 import Link from "next/link"
-import Layout from "../components/layout"
-import SongSearchComp from "../components/songsearchcomp"
+import Layout from "../../components/layout"
+import SongSearchComp from "../../components/songsearchcomp"
 
 function SongSearch() {
     document.addEventListener("keyup", function (event) {
@@ -17,7 +17,7 @@ function SongSearch() {
             <div className="flex flex-row items-center justify-evenly mb-5" >
 
                 <div className="m-3 text-2xl text-black">
-                    <Link href="/searchpage" className="text-blue-500">
+                    <Link href="/search/searchpage" className="text-blue-500">
                         <button className="bg-purple-500 text-black rounded-xl p-2">
                             Artist Search &rarr;
                         </button>
@@ -25,7 +25,7 @@ function SongSearch() {
                 </div>
 
                 <div className="m-3 text-2xl text-white">
-                    <Link href="searchpagealbum" className="text-blue-500">
+                    <Link href="/search/searchpagealbum" className="text-blue-500">
                         <button className="bg-purple-500 text-black rounded-xl p-2">
                             Album Search &rarr;
                         </button>

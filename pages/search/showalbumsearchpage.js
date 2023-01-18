@@ -1,33 +1,31 @@
 import Link from "next/link"
-import Layout from "../components/layout"
+import Image from "next/image"
+import Layout from "../../components/layout"
 
-function ShowArtistSearchPage({ data }) {
+function ShowAlbumSearch({ data }) {
 
-    function setArtistSearchArtistSelected(artid) {
-        const u = "http://192.168.0.91:9090/updateartistid?artid=" + artid
-        console.log(u)
+    function setAlbumSearchAlbumSelected(albid) {
+        const u = "http://192.168.0.91:9090/updateselectedalbumid?selalbid=" + albid
         const url = encodeURI(u)
         console.log(url)
         fetch(url)
     }
-
     return (
         <Layout>
             <center>
-                <div className="text-5xl text-white">Artist</div>
+                <div className="text-5xl text-white">Albums</div>
                 {
                     data
                         ?
-                        data.map((d, index) => (
+                        data.map((d) => (
                             <Link
-                                key={index}
-                                href="/showartistsearchpage2"
-                                
+                                href="/search/showalbumsearchpage2"
+                                key={d.ArtistID}
                                 id={d.ArtistID}
-                                onClick={() => setArtistSearchArtistSelected(d.ArtistID)}
+                                onClick={() => setAlbumSearchAlbumSelected(d.AlbumID)}
                                 className="m-4 text-3xl text-green-600"
                             >
-                                {d.Artist}
+                                <Image src={d.ThumbHttpPath} alt={d.Artist} width="120" height="120" />
                             </Link>
                         ))
                         :
@@ -35,16 +33,15 @@ function ShowArtistSearchPage({ data }) {
                 }
             </center>
         </Layout>
-
     )
 }
 
 export async function getServerSideProps() {
     const createAddr = (astring) => {
-        const url = "http://192.168.0.91:9090/artistsearch?search=" + astring
+        url = "http://192.168.0.91:9090/albumsearch?search=" + astring
         return encodeURI(url)
     }
-    const sstring = await fetch("http://192.168.0.91:9090/getsearchartist")
+    const sstring = await fetch("http://192.168.0.91:9090/getsearchalbum")
     const searchstring = await sstring.json()
     const addr = await createAddr(searchstring)
     const search = await fetch(addr)
@@ -52,4 +49,4 @@ export async function getServerSideProps() {
     return { props: { data } }
 }
 
-export default ShowArtistSearchPage
+export default ShowAlbumSearch

@@ -14,7 +14,7 @@ export default function ArtistsForArtistComp(props) {
                     ?
                     props.data.map((d) => (
                         <Link
-                            href="/artistpage3"
+                            href="/artist/artistpage3"
                             key={d._id}
                             id={d.artistid}
                             onClick={() => setArtistId(d.artistid)}

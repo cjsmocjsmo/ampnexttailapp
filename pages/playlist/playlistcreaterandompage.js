@@ -1,15 +1,18 @@
 import Link from "next/link"
-import Layout from "../components/layout"
+import Layout from "../../components/layout"
 
-export default function PlaylistCreatePage() {
+export default function PlaylistCreateRandomPage() {
 
     return (
         <Layout>
             <center>
-                <div className="m-5 text-5xl text-white">Create Empty Playlist</div>
+                <div className="m-5 text-5xl text-white">Create Random Playlist</div>
 
                 <div>
                     <input id="playlistCreateInput" type="text" className="mt-10 bg-green-300 rounded-lg text-red-400" placeholder="Playlist Name" />
+                </div>
+                <div>
+                    <input id="playlistCreateInput" type="text" className="mt-10 bg-green-300 rounded-lg text-red-400" placeholder="Number of Songs" />
                 </div>
                 <Link href="/playlistmainpage">
                     <button

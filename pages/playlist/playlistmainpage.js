@@ -1,6 +1,7 @@
 import Link from "next/link"
-import Layout from "../components/layout"
-import styles from "../components/tooltip.module.css"
+import Layout from "../../components/layout"
+import styles from "../../components/tooltip.module.css"
+
 export default function PlayListMainPage() {
     return (
         <Layout>
@@ -8,12 +9,12 @@ export default function PlayListMainPage() {
                 <div className="text-5xl text-white">PlayLists</div>
 
                 <div className="flex flex-1 flex-row items-center justify-evenly" >
-                    <Link href="/playlistcreatepage">
+                    <Link href="/playlist/playlistcreatepage">
                         <button className="mt-4 p-3 rounded-xl bg-purple-600 text-xl text-amber-400">
                             Create Playlist
                         </button>
                     </Link>
-                    <Link href="/playlistcreaterandompage">
+                    <Link href="/playlist/playlistcreaterandompage">
                         <button className="mt-4 p-3 rounded-xl bg-purple-600 text-xl text-amber-400">
                             Create Random Playlist
                         </button>

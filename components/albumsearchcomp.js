@@ -14,7 +14,7 @@ export default function AlbumSearchComp() {
             <label className="block">
                 <input id="albumSearchInput" type="text" className="bg-green-300 rounded-lg text-red-400" placeholder="Album Name" />
             </label>
-            <Link href="/showalbumsearchpage">
+            <Link href="/search/showalbumsearchpage">
                 <button
                     className="bg-purple-400 text-2xl mt-3 mb-6 p-1.5 text-black rounded-lg"
                     onClick={() => submitAlbumSearch()}

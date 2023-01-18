@@ -1,5 +1,5 @@
-import Layout from '../components/layout'
-import AlbumsForArtistComp from '../components/albumsforartistcomp'
+import Layout from '../../components/layout'
+import AlbumsForArtistComp from '../../components/albumsforartistcomp'
 
 function ArtistPage3({ data }) {
     return (

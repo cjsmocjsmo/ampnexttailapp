@@ -18,7 +18,7 @@ export default function AlbumsForArtistComp(props) {
                     props.data.map((d) => (
                         <div key={d.albumID} className='m-5'>
                             <Link
-                                href="songsforalbumpage"
+                                href="/songsforalbumpage"
                                 key={d.albumID}
                                 onClick={() => setSelectedAlbumID(d.albumID)}
                             >

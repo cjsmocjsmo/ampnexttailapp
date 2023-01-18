@@ -1,4 +1,4 @@
-import Layout from "../components/layout"
+import Layout from "../../components/layout"
 
 function ShowArtistSearchPage3({ data }) {
 
@@ -22,7 +22,7 @@ function ShowArtistSearchPage3({ data }) {
                             </svg>
                         </button>
                     </Link>
-                    <Link href="/mainplaylistpage">
+                    <Link href="/playlist/playlistmainpage">
                         <button
                             className="mt-3 p-2 rounded-xl bg-purple-600 text-lg text-amber-400"
                             onClick={() => addSongToPlaylist(d.SongID)}

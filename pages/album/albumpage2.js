@@ -1,5 +1,5 @@
-import Layout from '../components/layout';
-import AlbumsForAlbumComp from '../components/albumsforalbumcomp';
+import Layout from '../../components/layout';
+import AlbumsForAlbumComp from '../../components/albumsforalbumcomp';
 
 function AlbumPage2({ data }) {
     return (

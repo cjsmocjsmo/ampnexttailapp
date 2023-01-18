@@ -35,7 +35,7 @@ export default function SongsForSongComp(props) {
                                 </div>
                                 <div className={styles.tooltip}>
                                     <span className={styles.tooltiptext}>Edit Playlist</span>
-                                    <Link href="/mainplaylistpage">
+                                    <Link href="/playlistmainpage">
                                         <button
                                             className="mt-3 p-2 rounded-xl bg-purple-600 text-lg text-amber-400"
                                             onClick={() => addSongToPlaylist(d.songID)}

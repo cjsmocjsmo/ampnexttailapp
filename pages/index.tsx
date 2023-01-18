@@ -18,7 +18,7 @@ const Home: NextPage = () => {
 
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
           <Link
-            href="/searchpage"
+            href="/search/searchpage"
             className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
           >
             <h3 className="text-2xl font-bold text-purple-600">Search &rarr;</h3>
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
           </Link>
 
           <Link
-            href="/playlistmainpage"
+            href="/playlist/playlistmainpage"
             className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
           >
             <h3 className="text-2xl font-bold text-purple-600">Playlists &rarr;</h3>
@@ -39,7 +39,7 @@ const Home: NextPage = () => {
 
 
           <Link
-            href="/artistpage"
+            href="/artist/artistpage"
             className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
           >
             <h3 className="text-2xl font-bold text-purple-600">Artists &rarr;</h3>
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
           </Link>
 
           <Link
-            href="/albumpage"
+            href="/album/albumpage"
             className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
           >
             <h3 className="text-2xl font-bold text-purple-600">Albums &rarr;</h3>
@@ -59,7 +59,7 @@ const Home: NextPage = () => {
           </Link>
 
           <Link
-            href="/songpage"
+            href="/song/songpage"
             className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
           >
             <h3 className="text-2xl font-bold text-purple-600">Songs &rarr;</h3>

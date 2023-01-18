@@ -27,7 +27,7 @@ export default function ArtistSearchComp() {
             <label className="block">
                 <input id="artistSearchInput" type="text" className="bg-green-300 rounded-lg text-red-400" placeholder="Artist Name" />
             </label>
-            <Link href="/showartistsearchpage">
+            <Link href="/search/showartistsearchpage">
                 <button
                     className="bg-purple-400 text-2xl mt-3 mb-6 p-1.5 rounded-lg"
                     onClick={() => submitArtistSearch()}

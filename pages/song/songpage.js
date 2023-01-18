@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Layout from '../components/layout'
+import Layout from '../../components/layout'
 
 function Song({ data }) {
 
@@ -19,7 +19,7 @@ function Song({ data }) {
                                 key={d._id}
                                 id={d.firstletterid}
                                 className="m-4 text-3xl text-green-600"
-                                href="/songpage2"
+                                href="/song/songpage2"
                                 onClick={() => setFirstLetterID(d.firstletterid)}
                             >
                                 {d.firstletter}

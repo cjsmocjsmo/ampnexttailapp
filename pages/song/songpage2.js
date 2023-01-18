@@ -1,5 +1,5 @@
-import Layout from '../components/layout';
-import SongsForSongComp from '../components/songsforsongcomp';
+import Layout from '../../components/layout';
+import SongsForSongComp from '../../components/songsforsongcomp';
 
 function SongPage2({ data }) {
 

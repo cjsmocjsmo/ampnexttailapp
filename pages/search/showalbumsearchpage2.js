@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Layout from "../components/layout"
+import Layout from "../../components/layout"
 
 function ShowAlbumSearch2({ data }) {
     console.log(data)
@@ -31,7 +31,7 @@ function ShowAlbumSearch2({ data }) {
                                             </svg>
                                         </button>
                                     </Link>
-                                    <Link href="/mainplaylistpage">
+                                    <Link href="/playlist/playlistmainpage">
                                         <button
                                             className="mt-3 p-2 rounded-xl bg-purple-600 text-lg text-amber-400"
                                             onClick={() => addSongToPlaylist(d.SongID)}
