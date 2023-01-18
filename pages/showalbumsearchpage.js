@@ -4,23 +4,28 @@ import Layout from "../components/layout"
 
 function ShowAlbumSearch({ data }) {
 
-    console.log(data)
+    function setAlbumSearchAlbumSelected(albid) {
+        const u = "http://192.168.0.91:9090/updateselectedalbumid?selalbid=" + albid
+        const url = encodeURI(u)
+        console.log(url)
+        fetch(url)
+    }
     return (
         <Layout>
             <center>
-                <div className="text-5xl text-white">show album search page</div>
+                <div className="text-5xl text-white">Albums</div>
                 {
                     data
                         ?
                         data.map((d) => (
                             <Link
-                                href="/"
-                                key={d._id}
+                                href="/showalbumsearchpage2"
+                                key={d.ArtistID}
                                 id={d.ArtistID}
-                                onClick={() => setArtistSearchArtistSelected(d.ArtistID)}
+                                onClick={() => setAlbumSearchAlbumSelected(d.AlbumID)}
                                 className="m-4 text-3xl text-green-600"
                             >
-                                <Image src={d.ThumbHttpPath} width="120" height="120" />
+                                <Image src={d.ThumbHttpPath} alt={d.Artist} width="120" height="120" />
                             </Link>
                         ))
                         :

@@ -24,10 +24,10 @@ export default function SongSearchComp() {
         <div>
             <label className="block">
                 <input id="songSearchInput" type="text" className="bg-green-300 rounded-lg text-red-400" placeholder="Song Name" />
-            </label>function
+            </label>
             <Link href="/showsongsearchpage">
                 <button
-                    className="bg-blue-400 text-2xl mt-3 mb-6 p-1.5 rounded-lg"
+                    className="bg-purple-400 text-2xl mt-3 mb-6 p-1.5 rounded-lg"
                     onClick={() => submitSongSearch()}
                 >
                     Submit

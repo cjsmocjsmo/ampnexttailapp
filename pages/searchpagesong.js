@@ -16,9 +16,9 @@ function SongSearch() {
         <Layout>
             <div className="flex flex-row items-center justify-evenly mb-5" >
 
-                <div className="m-3 text-2xl text-white">
+                <div className="m-3 text-2xl text-black">
                     <Link href="/searchpage" className="text-blue-500">
-                        <button className="bg-purple-500 text-amber-400 rounded-xl p-2">
+                        <button className="bg-purple-500 text-black rounded-xl p-2">
                             Artist Search &rarr;
                         </button>
                     </Link>
@@ -26,7 +26,7 @@ function SongSearch() {
 
                 <div className="m-3 text-2xl text-white">
                     <Link href="searchpagealbum" className="text-blue-500">
-                        <button className="bg-purple-500 text-amber-400 rounded-xl p-2">
+                        <button className="bg-purple-500 text-black rounded-xl p-2">
                             Album Search &rarr;
                         </button>
 

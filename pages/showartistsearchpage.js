@@ -4,22 +4,24 @@ import Layout from "../components/layout"
 function ShowArtistSearchPage({ data }) {
 
     function setArtistSearchArtistSelected(artid) {
-
+        const u = "http://192.168.0.91:9090/updateartistid?artid=" + artid
+        console.log(u)
+        const url = encodeURI(u)
+        console.log(url)
+        fetch(url)
     }
-
-    console.log(data)
 
     return (
         <Layout>
             <center>
-                <div className="text-5xl text-white">show artist search page</div>
+                <div className="text-5xl text-white">Artist</div>
                 {
                     data
                         ?
                         data.map((d, index) => (
                             <Link
                                 key={index}
-                                href="/"
+                                href="/showartistsearchpage2"
                                 
                                 id={d.ArtistID}
                                 onClick={() => setArtistSearchArtistSelected(d.ArtistID)}
