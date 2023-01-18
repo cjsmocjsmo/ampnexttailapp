@@ -37,8 +37,9 @@ function ShowAlbumSearch({ data }) {
 }
 
 export async function getServerSideProps() {
-    function createAddr(astring) {
-        return "http://192.168.0.91:9090/albumsearch?search=" + encodeURIComponent(astring)
+    const createAddr = (astring) => {
+        url = "http://192.168.0.91:9090/albumsearch?search=" + astring
+        return encodeURI(url)
     }
     const sstring = await fetch("http://192.168.0.91:9090/getsearchalbum")
     const searchstring = await sstring.json()

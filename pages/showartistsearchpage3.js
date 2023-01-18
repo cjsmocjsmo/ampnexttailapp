@@ -10,8 +10,6 @@ function ShowArtistSearchPage3({ data }) {
                 className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
             >
                 <h5 className="text-3xl font-bold text-purple-600">{d.song} &rarr;</h5>
-
-                {/* <div className="grid grid-cols-2 items-center items-center"> */}
                 <div className="flex flex-1 flex-row items-center justify-evenly">
 
                     <Link href="/playerpage">
@@ -43,13 +41,15 @@ function ShowArtistSearchPage3({ data }) {
 }
 
 export async function getServerSideProps() {
+    const createUrl = (albid) => {
+        const u = "http://192.168.0.91:9090/songsForAlbum?selected=" + albid
+        return encodeURI(u)
+    }
     const alb = await fetch("http://192.168.0.91:9090/getselectedalbumid")
     const albid = await alb.json()
-
-    const u = "http://192.168.0.91:9090/songsForAlbum?selected=" + albid
-    const url = encodeURI(u)
+    const url = await createUrl(albid)
     const songs = await fetch(url)
-    const data = songs.json()
+    const data = await songs.json()
 
     return { props: { data } }
 }

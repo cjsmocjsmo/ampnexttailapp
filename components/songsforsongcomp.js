@@ -2,8 +2,6 @@ import Link from "next/link"
 
 export default function SongsForSongComp(props) {
 
-    console.log(props.data)
-
     function setSongID(sid) {
         const url = "http://192.168.0.91:9090/updatesongid?sid=" + encodeURIComponent(sid)
         fetch(url)
@@ -21,8 +19,6 @@ export default function SongsForSongComp(props) {
                             className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
                         >
                             <h5 className="text-3xl font-bold text-purple-600">{d.song} &rarr;</h5>
-
-                            {/* <div className="grid grid-cols-2 items-center items-center"> */}
                             <div className="flex flex-1 flex-row items-center justify-evenly">
 
                                 <Link href="/playerpage">
@@ -38,7 +34,7 @@ export default function SongsForSongComp(props) {
                                 <Link href="/mainplaylistpage">
                                     <button
                                         className="mt-3 p-2 rounded-xl bg-purple-600 text-lg text-amber-400"
-                                        onClick={() => addSongToPlaylist(d.SongID)}
+                                        onClick={() => addSongToPlaylist(d.songID)}
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-database-fill-add" viewBox="0 0 16 16">
                                             <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0ZM8 1c-1.573 0-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4s.875 1.755 1.904 2.223C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777C13.125 5.755 14 5.007 14 4s-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1Z" />
@@ -52,7 +48,6 @@ export default function SongsForSongComp(props) {
                     :
                     <h1></h1>
             }
-
         </div>
     )
 }

@@ -16,17 +16,19 @@ function SongPage2({ data }) {
 }
 
 export async function getServerSideProps() {
+    const createUrl = (sid) => {
+        const u1 = 'http://192.168.0.91:9090/songsForFirstLetter?firstletter=' + aid[3, 4]
+        const u2 = "http://192.168.0.91:9090/updatesongsforfirstletterurl?url=" + u1
+        return encodeURI(u2)
+    }
     const foo = await fetch("http://192.168.0.91:9090/getsongfirstletterid")
     const aid = await foo.json()
-    const url = 'http://192.168.0.91:9090/songsForFirstLetter?firstletter=' + aid[3, 4]
-    const url2 = "http://192.168.0.91:9090/updatesongsforfirstletterurl?url=" + encodeURIComponent(url)
-
-    const d = await fetch(url2)
+    const url = await createUrl(aid)
+    const d = await fetch(url)
     const res = await fetch("http://192.168.0.91:9090/getsongsforfirstletterurl")
     const addr = await res.json()
     const data1 = await fetch(addr)
     const data = await data1.json()
-    console.log(data)
     return { props: { data } }
 }
 

@@ -40,8 +40,9 @@ function ShowArtistSearchPage({ data }) {
 }
 
 export async function getServerSideProps() {
-    function createAddr(astring) {
-        return "http://192.168.0.91:9090/artistsearch?search=" + encodeURIComponent(astring)
+    const createAddr = (astring) => {
+        const url = "http://192.168.0.91:9090/artistsearch?search=" + astring
+        return encodeURI(url)
     }
     const sstring = await fetch("http://192.168.0.91:9090/getsearchartist")
     const searchstring = await sstring.json()

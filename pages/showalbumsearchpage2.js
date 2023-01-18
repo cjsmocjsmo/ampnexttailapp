@@ -56,18 +56,15 @@ function ShowAlbumSearch2({ data }) {
 }
 
 export async function getServerSideProps() {
-    function createUrl(albid) {
+    const createUrl = (albid) => {
         const u = "http://192.168.0.91:9090/songsForAlbum?selected=" + albid
         return encodeURI(u)
     }
     const alb = await fetch("http://192.168.0.91:9090/getselectedalbumid")
     const albid = await alb.json()
-    console.log(albid)
-    const url = createUrl(albid)
-    console.log(url)
+    const url = await createUrl(albid)
     const songs = await fetch(url)
     const data = await songs.json()
-    console.log(data)
     return { props: { data } }
 }
 

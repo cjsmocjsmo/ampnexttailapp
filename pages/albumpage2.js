@@ -13,12 +13,16 @@ function AlbumPage2({ data }) {
 }
 
 export async function getServerSideProps() {
+    const creatUrl = (id) => {
+        const u1 = 'http://192.168.0.91:9090/albumsForFirstLetter?firstletter=' + aid[4, 5]
+        const u2 = "http://192.168.0.91:9090/updatealbumsforfirstletterurl?url=" + u1
+        return encodeURI(u2)
+    }
     const foo = await fetch("http://192.168.0.91:9090/getalbumfirstletterid")
     const aid = await foo.json()
-    const url = 'http://192.168.0.91:9090/albumsForFirstLetter?firstletter=' + encodeURIComponent(aid[4, 5]) 
-    const url2 = "http://192.168.0.91:9090/updatealbumsforfirstletterurl?url=" + encodeURIComponent(url)
-    const d = await fetch(url2)
-    
+    const url = await creatUrl(aid)
+    const d = await fetch(url)
+
     const res = await fetch("http://192.168.0.91:9090/getalbumsforfirstletterurl")
     const addr = await res.json()
     const data1 = await fetch(addr)

@@ -72,8 +72,9 @@ function SongsForAlbumPage({ data }) {
 }
 
 export async function getServerSideProps() {
-    function newaddr(b2) {
-        return "http://192.168.0.91:9090/songsForAlbum?selected=" + b2
+    const newaddr = (b2) => {
+        const u1 = "http://192.168.0.91:9090/songsForAlbum?selected=" + b2
+        return encodeURI(u1)
     }
     const id = await fetch("http://192.168.0.91:9090/getselectedalbumid")
     const albid = await id.json()

@@ -43,6 +43,4 @@ function AlbumSearch() {
     )
 }
 
-
-
 export default AlbumSearch

@@ -45,8 +45,8 @@ function ShowArtistSearchPage2({ data }) {
 }
 
 export async function getServerSideProps() {
-    function myUrl(id) {
-        const url = "http://192.168.0.91:9090/albumsForArtist?selected=" + artid
+    const myUrl = (id) => {
+        const url = "http://192.168.0.91:9090/albumsForArtist?selected=" + id
         return encodeURI(url)
     }
     const arid = await fetch("http://192.168.0.91:9090/getartistid")
