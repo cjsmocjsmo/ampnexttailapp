@@ -3,7 +3,8 @@ import styles from "../components/tooltip.module.css"
 export default function SongsForSongComp(props) {
 
     function setSongID(sid) {
-        const url = "http://192.168.0.91:9090/updatesongid?sid=" + encodeURIComponent(sid)
+        const u = "http://192.168.0.91:9090/updatesongid?sid=" + sid
+        const url = encodeURI(u)
         fetch(url)
     }
 

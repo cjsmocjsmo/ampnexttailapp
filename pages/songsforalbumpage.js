@@ -14,7 +14,7 @@ function SongsForAlbumPage({ data }) {
         const url = "http://192.168.0.91:9090/updatesongid?sid=" + sid
         const eurl = encodeURI(url)
         fetch(eurl)
-        setThumbHttpPath(encodeURI(httppath))
+        setThumbHttpPath(httppath)
     }
 
     function addSongToPlaylist(asong) {
